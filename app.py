@@ -1,6 +1,5 @@
 from flask import Flask,render_template,redirect,url_for,request
 import pickle
-import re
 
 app = Flask(__name__)
 
@@ -8,8 +7,8 @@ app = Flask(__name__)
 def salpred():
     if request.method=='POST':
       user=request.form['nm']
-      regex = re.compile('[@_!#$%^&*()<>?/\|}{~:]')
-      if (user.isalpha() ==True or regex.search(user) == True):
+      
+      if (user.isalpha() ==True):
         return render_template('salpred.html',ps='alp')
       else:  
         if(len(user)>0):
